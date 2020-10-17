@@ -1,11 +1,18 @@
 import { Button } from '@material-ui/core'
+import { useState } from 'react'
 import React from 'react'
 import './Banner.css'
-
+import Search from './Search.js'
 
 function Banner() {
+    const [showSearch, setShowSearch] = useState (false);
+
     return (
         <div className='banner'>
+            <div className='banner__search'>
+                {showSearch && <Search />}
+                <Button onClick={() => setShowSearch(!showSearch)}className='banner__searchButton' variant='outlined'>{showSearch ? "Hide" : "Search Dates"}</Button>
+            </div>
             <div className='banner__info'>
                 <h1>Get out and stretch your imagination</h1>
                 <h5>
